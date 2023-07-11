@@ -5,3 +5,4 @@ Git tracks changes of files.
 git init // 添加为git可管理
 git add 将修改加入到下一次commit中
 git commit 提交暂存区的修改
+git log --graph 查看分支图
