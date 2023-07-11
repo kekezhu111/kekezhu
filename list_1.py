@@ -6,14 +6,15 @@ i = 0
 if b[i] in a:
     s = a.index(b[i])
 
-for j in range(len(b)):
-    c.append(a[s])
-    s += 1
+    for j in range(len(b)):
+        c.append(a[s])
+        s += 1
 
-print(c)
+print(f"列表a的连续子列表是{c}")
+print(f"列表b是{b}")
 
 if c == b:
     print("b属于a的连续子列表。")
 else:
     print("b不属于a的连续子列表。")
-
+    
