@@ -1,20 +1,30 @@
-a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-b = [2, 3, 4]
-c = []
+from typing import List
 
-i = 0
-if b[i] in a:
-    s = a.index(b[i])
 
-    for j in range(len(b)):
-        c.append(a[s])
-        s += 1
+class Solution:
+    def pivotIndex(self, nums1: List[int], nums2: List[int]) -> bool:
+        a = b = 0
+        nums3 = []
+        for i in range(len(nums2)):
+            if nums1[a] == nums2[b]:
+                nums3.append(nums2[b])
+                if nums3 == nums1:
+                    return True
+                a += 1
+                b += 1
+            else:
+                a = 0
+                i += 1
+                b = i
+                nums3 = []
+        else:
+            return False
+        # print(nums3)
 
-print(f"列表a的连续子列表是{c}")
-print(f"列表b是{b}")
 
-if c == b:
-    print("b属于a的连续子列表。")
-else:
-    print("b不属于a的连续子列表。")
-    
+c = Solution()
+print(c.pivotIndex([4, 1, 3, 5, 6], [1, 3, 2, 4, 1, 3, 5, 6]))
+print(c.pivotIndex([2, 4], [1, 3, 2, 4, 1, 3, 5]))
+print(c.pivotIndex([1, 3, 3], [1, 3, 2, 4, 1, 3, 5]))
+print(c.pivotIndex([5, 6, 7], [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
