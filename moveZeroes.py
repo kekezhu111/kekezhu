@@ -28,3 +28,25 @@ print(num.moveZeroes([1, 0, 0, 2, 3, 0, 5]))
 print(num.moveZeroes([0, 0, 1, 5, 2]))
 print(num.moveZeroes([]))
 
+
+# 第二种方法
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        if not nums:
+            return []
+        index = 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[i], nums[index] = nums[index], nums[i]
+                index += 1
+        return nums
+
+
+num = Solution()
+print(num.moveZeroes([0, 1, 0]))
+print(num.moveZeroes([1, 0, 0, 2, 3, 0, 5]))
+print(num.moveZeroes([0, 0, 1, 5, 2]))
+print(num.moveZeroes([]))
